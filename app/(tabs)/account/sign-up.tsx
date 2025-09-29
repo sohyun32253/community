@@ -1,24 +1,47 @@
-import { View, Text, TextInput, Image, Pressable, StyleSheet } from "react-native";
+import { View, Text, TextInput, Image, Pressable, StyleSheet, Alert } from "react-native";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../src/firebaseConfig";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import GoogleSignInButton from "../../components/GoogleSignInButton";
-import AccountScreen from "../../components/AccountScreen";
+import GoogleSignInButton from "../../../components/GoogleSignInButton";
+import AccountScreen from "../../../components/AccountScreen";
+import Toast from "react-native-toast-message";
 
 export default function Account() {
     type FormData = {
-        email: string;
-        password: string;
+      email: string;
+      password: string;
     };
     const{
-    control,
-    handleSubmit,
-    formState: { errors },
+      control,
+      handleSubmit,
+      formState: { errors },
     } = useForm<FormData>({ mode: "onChange" });
-    const onSubmit = (data: any) => {
-    console.log("로그인 시도:", data);
-  };
 
+     const onSubmit = async (data: FormData) => {
+    try {
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+
+      Toast.show({
+        type: "success",
+        text1: "회원가입 성공",
+        text2: `${userCred.user.email} 계정이 생성되었습니다.`,
+      });
+
+      router.replace("/(tabs)/account/sign-in");
+    } catch (err: any) {
+      Toast.show({
+        type: "error",
+        text1: "회원가입 실패",
+        text2: err.message || "이미 존재하는 계정이거나 잘못된 입력입니다.",
+      });
+    }
+  };
    const [showPwd, setShowPwd] = useState(false);
    const [passwordVisible, setPasswordVisible] = useState(false);
 
@@ -29,7 +52,7 @@ export default function Account() {
   const router = useRouter(); 
 
   function goToSignin() {
-    router.push("/sign-in");
+    router.push("/account/sign-in");
   }
 
   return (
@@ -147,8 +170,8 @@ export default function Account() {
         <Image
           source={
             showPwd
-              ? require("../../assets/images/visibility_off_icon.svg")
-              : require("../../assets/images/visibility_icon.svg")
+              ? require("../../../assets/images/visibility_off_icon.svg")
+              : require("../../../assets/images/visibility_icon.svg")
           }
           style={{ width: 24, height: 24, resizeMode: "contain" }}
         />

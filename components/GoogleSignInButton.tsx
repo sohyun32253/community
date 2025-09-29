@@ -4,12 +4,13 @@ import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
 import { GoogleAuthProvider, signInWithCredential } from "firebase/auth";
 import { auth } from "../app/src/firebaseConfig";
+import GoogleIcon from '../assets/images/google_icon.svg'
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleSignInButton() {
   const [request, response, promptAsync] = Google.useAuthRequest({
-    webClientId:     "886186505959-af0366oejd4rk2encsj2j9pc1gebcbas.apps.googleusercontent.com",
+    webClientId: "886186505959-af0366oejd4rk2encsj2j9pc1gebcbas.apps.googleusercontent.com",
   });
 
   useEffect(() => {
@@ -25,9 +26,8 @@ export default function GoogleSignInButton() {
   }, [response]);
 
   return (
-            <Pressable style={styles.snsButton} onPress={() => promptAsync()}>
-      <Image
-        source={require("../assets/images/google_icon.svg")} 
+    <Pressable style={styles.snsButton} onPress={() => promptAsync()}>
+      <GoogleIcon 
         style={{ width: 24, height: 24, resizeMode: "contain" }}
       />
     </Pressable>
