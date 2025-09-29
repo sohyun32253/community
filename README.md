@@ -121,6 +121,8 @@ posts: [
 상세 보기 + 댓글 작성
 
 ## ⚠️ 유의사항
+- 구글, 카카오, 네이버 소셜 로그인 API 연동도 구현하였으나, 
+화면 녹화 시 현재 탭만 촬영되는 관계로 안나오는 점 양해부탁드립니다.
 
 - Cloudinary는 Unsigned preset 사용 (community 또는 mvp_posts)
 
