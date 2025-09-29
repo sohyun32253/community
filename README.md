@@ -6,7 +6,7 @@
 ---
 
 ## 📂 GitHub 저장소
-👉 (https://github.com/sohyun32253/community)  
+👉 [저장소 바로가기](https://github.com/sohyun32253/community)  
 
 ---
 
@@ -108,7 +108,7 @@ posts: [
 
 ## 🎥 시연 영상
 
-(https://drive.google.com/file/d/1ziFYMK6qP4VFn_vH3gkOk2IYjpyVT0-N/view?usp=sharing)
+[MVP 시연 영상](https://drive.google.com/file/d/1ziFYMK6qP4VFn_vH3gkOk2IYjpyVT0-N/view?usp=sharing)
 
 ## 📹 영상 흐름
 
@@ -121,8 +121,11 @@ posts: [
 상세 보기 + 댓글 작성
 
 ## ⚠️ 유의사항
-- 구글, 카카오, 네이버 소셜 로그인 API 연동도 구현하였으나, 
-화면 녹화 시 현재 탭만 촬영되는 관계로 안나오는 점 양해부탁드립니다.
+- 구글, 카카오, 네이버 소셜 로그인 API 연동도 구현하였습니다.  
+- 다만 화면 녹화 특성상 시연 영상 메인에는 버튼 클릭 장면이 보이지 않습니다.  
+- 별도의 API 호출 확인 영상은 아래 링크에서 확인 가능합니다.  
+
+👉 [소셜 로그인 API 시연 영상](https://drive.google.com/file/d/16b41P9LIH2douRWL1Tp_tRbW2AM9idzs/view?usp=sharing)
 
 - Cloudinary는 Unsigned preset 사용 (community 또는 mvp_posts)
 
