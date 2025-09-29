@@ -6,7 +6,7 @@
 ---
 
 ## 📂 GitHub 저장소
-👉 [프로젝트 GitHub 링크](https://github.com/sohyun32253/community)  
+👉 (https://github.com/sohyun32253/community)  
 
 ---
 
